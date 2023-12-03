@@ -1,0 +1,62 @@
+●What is Emmet?
+Emmet is a plugin used for high speed coding and it is platform independent from any text editor
+
+
+● Difference between a Library and Framework?
+
+Library provide developer predefined function and classes for developer to boost their development process
+by using library user can control the flow of application and call the library when user wants
+library aere collection of modules obj classes function templates
+You can edit their code to meet particular needs and it is geared toward a particular program to solve a specific decelopment problem
+
+Framework on the other hand is like the foundation on which developer buid application for specific development platforms
+-Control is Inverted that is framework control the flow of the program it consist of api,compilers,toolssets
+-Using them you cann build and deploy application in a standard way as framwork as framework already provide code to perform common task
+-It is not easy to replace the framework rather library do 
+
+
+● What is CDN? Why do we use it?
+
+CDN is a network of interconnected servers that speed up webpage 
+loading for heavy data application when a user visit a website data from that website server has 
+to travel across the internet to reach the user computers if it is located far it will take time for load large file 
+instead the website content is stored on cdn servers geographically closer to users and reaches faster
+
+CDN reduce latency or reduce the delay in communication created by a network design
+
+● Why is React known as React?
+React is one of many libraries and it's completely frontend and specializes in things that the user interacts with when they're 
+using a website. This could be buttons, search bars and menus. “And it's called React because it reacts
+
+
+
+● What is crossorigin in script tag?
+● What is diference between React and ReactDOM
+
+React library is responsible for creating views 
+and ReactDOM library is responsible to actually render UI in the browser. 
+React is a library that is specifically designed to interact with DOM for us. From now onwards we don’t update DOM directly instead we’re going to 
+tell react to update the DOM for us. React will take care of rendering and reconciling the element for us through the command we give to react.
+
+Once you’ve created the React element. Then you want to see it in the Browser. But Browser doesn’t understand the React element.
+ ReactDOM is the middleman that renders the React element in the browser.
+ReactDOM comes with some useful methods but the method in which we are interested is render.
+It takes 2 parameters describe as what(element you want to render) and where(the location where you want to render).
+
+
+● What is difference between react.development.js and react.production.js files via CDN?
+
+react.development.js - More developer friendly, readable, will take more size.
+react.production.js - Minified code that is not developer friendly as it focused on decreasing in file size, code efficiency.
+
+
+● What is async and defer? 
+
+The async and defer attributes both allow the browser to continue parsing the HTML document 
+while JavaScript files are being downloaded, but they differ in when those files are executed.
+
+Async downloads and executes JavaScript as soon as it’s available, while defer attribute waits until the HTML document has been parsed before downloading and executing any external scripts.
+
+In most cases, it doesn’t matter which attribute you use – both will improve performance by allowing the browser to continue parsing 
+while waiting for JavaScript to download. 
+However, there are some situations where one attribute may be preferable to the other.

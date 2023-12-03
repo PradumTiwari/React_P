@@ -1,0 +1,147 @@
+● - What is `NPM`?
+
+Npm is World Largest Software Registery
+.Every Developers use to share and borrow 
+packages and many organisation use npm to manage private development
+
+npm 3 components:--
+the website 
+the CLI
+the Registery
+
+Npm is use to Adapt and incorporate package
+
+Run Packages without Downloading using npx
+
+Share Code with npm user 
+Update Application easily
+
+
+
+
+
+● - What is `Parcel/Webpack`? Why do we need it?
+// npm run ===npx
+
+// HMR
+// File watcher ALgorithm
+
+// Building
+// Minify
+// Cleaning Our Code
+// Dev And Pradouction Build
+// Super Fast Build Algorithm
+//Parcel Also does Image Optimation FOr US
+// Parcel Also does Caching While Development Builds
+//Parcel Also does File Compression
+//Parcel Also DOes Compatible with older version of browser
+//Parcel Enable https on development device also
+
+//We should parcel-cache in git ignore
+// Anything Which Can be generated on server we Will put in .git-ignore
+// parcel does Consistent Hashing Algorithm
+//Zero Config
+
+Parcel automatically Rebuilds the changed files and updates your app in the browser by default
+Parcel fully reloads the page but woth the help of HMR(Hot module Replacement) it improves 
+by development experience by updating only module without full page
+
+
+Parcel accept any type of file for entry point but an html file is a good place to start
+
+Parcel has A development server built in which will 
+automatically rebuild your app as you make changes
+
+CACHING:-Parcel chaches everthing you build to disk Parcel will only 
+rebuild the files that has been changed since the last time it ran
+Parcel tracks all the files ,configuration ,plugins and dev dependencies involves in your build 
+
+ You should add this folder to your .gitignore (or equivalent) so that it is not committed in your repo.
+
+
+HTTPS:-Sometimes, you may need to use HTTPS during development.
+To use an automatically generated self-signed certificate, use the --https CLI flag. The first time you load the page, you may need to manually trust this certificate in your browser.
+
+
+FILE WATCHER:-To support an optimal caching and development experience Parcel utilizes a very fast watcher written in C++
+
+
+PARCEL PRODUCTION :--     Size optimisation :-Parcel includes many optimizations designed to reduce bundle sizes, minification, image optimization, more.
+                           
+                         MINIFICATION:-Parcel includes minifiers for JavaScript, CSS, HTML, and SVG out of the box.
+                          Minification reduces the file size of your output bundles by removing whitespace, renaming variables to shorter names, and many other optimizations.
+
+
+                         TREE SHAKING:-In production builds, Parcel statically analyzes the imports and exports
+                          of each module, and removes everything that isn't used. This is called "tree shaking" or "dead code elimination".
+
+                         IMAGE OPTIMISATION:-Parcel supports resizing, converting, and optimizing images. 
+                         You can use query parameters when referencing an image in HTML, CSS, or JavaScript to specify which format and size the image should be converted to.
+
+
+
+# Cache optimization
+Parcel includes several optimizations related to browser and CDN caching, including content hashing, bundle manifests, and shared bundles.
+
+CODE SPLITTING:-- Parcel supports zero configuration code so this allows you to split the code into sepreate bundles which can be loaded on demand
+
+● - What is `.parcel-cache`
+
+The .cache folder (or .parcel-cache in parcel v2) stores information about your project when parcel builds it, so that when it rebuilds, it doesn't have to re-parse and re-analyze everything from scratch. It's a key reason why parcel can be so fast in development mode. I think committing it to git would 
+be a bad idea - it would add a large number of (unnecessary) changes to your commit history, and it could easily get out-of-sync with the code that generated it.
+
+
+
+● - What is `npx` ?
+
+NOdde package execute is simply a package runner which allows any developer to run javascript package available on npm registery without even installing it
+
+● - What is difference between `dependencies` vs `devDependencies`
+ 
+   In general dependencies and dev dependencies it consist of all the packages that are used in the project in the development phase and not in the production and testing .So whenever you want to install for only development phase and by the Following command
+
+   npm install <Package-Name> --save -dev 
+
+
+In package.json contian dependencies and it consist all the packages that are used in the project with its version number 
+
+
+
+● - What is Tree Shaking?
+
+ Tree Shaking is a term commonly used for removing of dead code aand in mordern js application we use modulle bundlers for the automatically removal of dead code when bundling multiple js files into single files 
+ >That is improtant for production ready
+    Some of the Module Bundlers are Webpack and rollUp
+
+
+
+
+● - What is Hot Module Replacement?
+ 
+ Hot module Replacement adds or removes module while an application is running without a full reload this can signifiacntly speed up development in a few ways
+
+ >Retain Application state which is lost during full reload
+ > Save Valuable time
+ > Imstantly update the browser when modification to css/js are made in source code 
+
+ HOW IT WORKS
+
+ the application ask the hmr runtime to check for updates 
+ the runtime asynchronously download the updates and notifies the app
+ the app then ask the runtime to apply the updates 
+ the runtime synchronously updates it 
+
+
+
+
+● - List down your favourite 5 superpowers of Parcel and describe any 3 of them in your
+own words.
+● - What is `.gitignore`? What should we add and not add into it?
+● - What is the difference between `package.json` and `package-lock.json`
+● - Why should I not modify `package-lock.json`?
+● - What is `node_modules` ? Is it a good idea to push that on git?
+● - What is the `dist` folder?
+● - What is `browserlists`
+Read about dif bundlers: vite, webpack, parcel
+● Read about: ^ - caret and ~ - tilda
+● Read about Script types in html (MDN Docs)
