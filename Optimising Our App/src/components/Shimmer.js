@@ -2,7 +2,7 @@ import './shimmer.css';
 
 const Shimmer=()=>{
   return (
-    <div className="restaurant-list flex">
+    <div className="restaurant-list ">
     {Array(20)
     .fill("")
       .map((e,index)=>(

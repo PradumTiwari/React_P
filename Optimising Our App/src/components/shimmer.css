@@ -1,10 +1,22 @@
 .shimmer-card{
 width: 240px;
-height: 240.38px;
-background-color: lightgrey;
+height: 260.38px;
+
+
+background-color: rgb(82, 90, 133);
     border-radius: 5px;
     box-shadow: -1px 5px 10px 5px rgba(42, 42, 42, 0.2);
     padding: 10px;
-    margin: 20px;
+    margin: 10px;
     cursor: pointer;
+}
+.restaurant-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    width: 100%;
+    max-width: 100%;
+   
 }

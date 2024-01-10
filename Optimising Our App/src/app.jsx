@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./components/Header";
-import Body from "./Components/Body";
+import Body from "./components/Body";
 import Footer from "./Components/Footer";
 import About from "./components/About";
 import { createBrowserRouter,RouterProvider,Outlet} from "react-router-dom";
@@ -10,14 +10,21 @@ import Contact from "./components/Contact";
 import RestaurantMenu from "./components/RestaunrantMenu";
 import Profilefun from "./components/profile";
 import Profile from "./components/profileClass";
-
+import Instamart from "./components/Instamart";
+import {useContext} from "react";
+import UserContext from './utils/UserContext';
+import { useState } from "react";
 const AppLayout = () => {
+  const [user, setUser] = useState({
+    name:"Pradum Tiwari",
+    Email:"Satendarpradum@gmail.com"
+  })
   return (
-    <React.Fragment>
+    <UserContext.Provider value={{user:user,setUser:setUser}}>
       <Header />
        <Outlet/> 
       <Footer />
-    </React.Fragment>
+    </UserContext.Provider>
   );
 };
 
@@ -31,6 +38,10 @@ const appRouter=createBrowserRouter([
       {
       path:"/",
       element:<Body/>,
+      },
+      {
+        path:"/Instamart",
+        element:<Instamart/>
       },
       { 
         path:"/about",

@@ -3,6 +3,8 @@ import { useEffect, useState } from "react"; /* This is named export */
 import Shimmer from "./Shimmer";/* This is default export */
 import { swiggy_api_URL } from "../../constant.js";
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import UserContext from '../utils/UserContext.js';
 // Filter the restaurant data according input type
 function filterData(searchText, restaurants) {
   const resFilterData = restaurants.filter((restaurant) =>
@@ -18,15 +20,13 @@ const Body = () => {
   const [allRestaurants, setAllRestaurants] = useState([]);
   const [filteredRestaurants, setFilteredRestaurants] = useState([]);
   const [errorMessage, setErrorMessage] = useState("");
-
+   const {user,setUser}=useContext(UserContext);
   // use useEffect for one time call getRestaurants using empty dependency array
   useEffect(() => {
     getRestaurants();
   }, []);
 
   
-
-  console.log(useEffect);
   // async function getRestaurant to fetch Swiggy API data
   async function getRestaurants() {
     // handle the error using try... catch
@@ -84,8 +84,8 @@ const Body = () => {
      <div className="search-container p-3  space-x-10 ">
         <input
           type="text"
-          className="search-input bg-slate-800 px-3 py-2 hover:bg-slate-900
-           text-slate-50 rounded-xl "
+          className="search-input w-20 bg-slate-800 px-3 py-2 hover:bg-slate-900
+           text-slate-50 rounded-xl  "
           placeholder="Search a restaurant you want..."
           value={searchText}
           // update the state variable searchText when we typing in input box
@@ -101,7 +101,7 @@ const Body = () => {
           Search
         </button>
       </div>
-     
+     <input type="text" value={user.name} onChange={(e)=>{setUser(e.target.value)}}/>
       {errorMessage && <div className="error-container">{errorMessage}</div>}
 
       {/* if restaurants data is not fetched then display Shimmer UI after the fetched data display restaurants cards */}
