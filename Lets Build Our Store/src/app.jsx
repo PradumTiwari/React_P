@@ -14,17 +14,21 @@ import Instamart from "./components/Instamart";
 import {useContext} from "react";
 import UserContext from './utils/UserContext';
 import { useState } from "react";
+import { Provider } from "react-redux";
+import store from "./utils/store";
 const AppLayout = () => {
   const [user, setUser] = useState({
     name:"Pradum Tiwari",
     Email:"Satendarpradum@gmail.com"
   })
   return (
+    <Provider store={store}>
     <UserContext.Provider value={{user:user,setUser:setUser}}>
       <Header />
        <Outlet/> 
       <Footer />
     </UserContext.Provider>
+    </Provider>
   );
 };
 
