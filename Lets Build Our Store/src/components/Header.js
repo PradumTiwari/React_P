@@ -47,7 +47,7 @@ const Header = () => {
            <li className="px-5">Contact</li>
            </Link>
            <Link to="/Cart">
-           <li className="px-5">Cart--{cartItems.length}</li>
+           <li className="px-5">Cart Items:--{cartItems.length}</li>
            </Link>
            <Link to="/Instamart">
            <li className="px-5">Instamart</li>

@@ -9,7 +9,7 @@ function CartItem({
       <img src={IMG_CDN_URL+imageId} alt="Food Image" className=''/>
       <h2 className='font-bold py-3 px-1'>Name: {name}</h2>
       <h3><span className='font-bold'>Description:--</span>{description}</h3>
-      <h4>Price :{(defaultPrice||Price)?defaultPrice/100:Price/100}Rs</h4>
+      <h4><span>Price :</span>{(defaultPrice||Price)?defaultPrice/100:Price/100}Rs</h4>
     </div>
   )
 }

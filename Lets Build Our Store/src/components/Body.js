@@ -84,15 +84,15 @@ const Body = () => {
      <div className="search-container p-3  space-x-10 ">
         <input
           type="text"
-          className="search-input w-20 bg-slate-800 px-3 py-2 hover:bg-slate-900
-           text-slate-50 rounded-xl  "
+          className="search-input s bg-slate-800 px-3 py-2 hover:bg-slate-900
+           text-slate-200 rounded-xl my-2 mx-1 w-max  "
           placeholder="Search a restaurant you want..."
           value={searchText}
           // update the state variable searchText when we typing in input box
           onChange={(e) => setSearchText(e.target.value)}
         ></input>
         <button
-          className="search-btn bg-slate-800 px-2 hover:bg-slate-900 text-slate-50 "
+          className="search-btn bg-slate-800  hover:bg-slate-900 text-slate-50 px-4 py-2 rounded-xl   "
           onClick={() => {
             // user click on button searchData function is called
             searchData(searchText, allRestaurants);
@@ -101,7 +101,7 @@ const Body = () => {
           Search
         </button>
       </div>
-     <input type="text" value={user.name} onChange={(e)=>{setUser(e.target.value)}}/>
+    
       {errorMessage && <div className="error-container">{errorMessage}</div>}
 
       {/* if restaurants data is not fetched then display Shimmer UI after the fetched data display restaurants cards */}
