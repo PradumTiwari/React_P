@@ -8,7 +8,7 @@ import { useSelector } from "react-redux";
 // Title component for display logo
 const Title = () => (
   <a href="/">
-    <img
+    <img data-testid="logo"
       className="logo h-28 pl-10 rounded-full"
       src={"https://image.similarpng.com/very-thumbnail/2021/07/Chef-restaurant-logo-illustrations-template-on-transparent-background-PNG.png"}
       alt="Food Fire Logo"
