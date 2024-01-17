@@ -16,6 +16,8 @@ import UserContext from './utils/UserContext';
 import { useState } from "react";
 import { Provider } from "react-redux";
 import store from "./utils/store";
+import Cart from "./components/Cart";
+
 const AppLayout = () => {
   const [user, setUser] = useState({
     name:"Pradum Tiwari",
@@ -47,6 +49,10 @@ const appRouter=createBrowserRouter([
         path:"/Instamart",
         element:<Instamart/>
       },
+      {
+        path:"/Cart",
+        element:<Cart/>
+      },
       { 
         path:"/about",
         element:<About />,
@@ -61,13 +67,14 @@ const appRouter=createBrowserRouter([
         path:"/contact",
         element:<Contact/>,
       },
+      {
+        path:"/restaurant/:id",
+        element:<RestaurantMenu />,
+    
+      },
     ],
   },
-  {
-    path:"/restaurant/:id",
-    element:<RestaurantMenu />,
-
-  },
+  
 ]) ;
 
 

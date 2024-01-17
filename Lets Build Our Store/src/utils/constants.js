@@ -12,3 +12,17 @@ export const SWIGGY_RESTURANT_MENU_URL =
 
 export const SWIGGY_RESTURANT_MENU_FOOD_IMG_URL =
   "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_208,h_208,c_fit/";
+
+  export const DefaultUser={
+
+    Pradum:{
+      "name": "Pradum Tiwari",
+      "email": "",
+      "phone": "+91 XXXXXXXXX",
+      "address": "Bangalore",
+      "pincode": "560001",
+
+    }
+    
+
+  }

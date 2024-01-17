@@ -2,10 +2,13 @@ import { useState ,useContext} from "react";
 import FoodFireLogo from "../Images/Food Fire Logo.png";
 import { Link } from "react-router-dom";
 import UserContext from '../utils/UserContext';
+import { useSelector } from "react-redux";
+
+
 // Title component for display logo
 const Title = () => (
   <a href="/">
-    <img
+    <img data-testid="logo"
       className="logo h-28 pl-10 rounded-full"
       src={"https://image.similarpng.com/very-thumbnail/2021/07/Chef-restaurant-logo-illustrations-template-on-transparent-background-PNG.png"}
       alt="Food Fire Logo"
@@ -22,6 +25,13 @@ const Header = () => {
  
   const {user,setUser} = useContext(UserContext);
 
+  const cartItems=useSelector(store=>store.cart.items);
+  
+  console.log(cartItems)
+
+
+// const cartItems=useSelector(store =>store.cart.cartItems);
+
   return (
     <div className="header flex justify-between bg-slate-800 shadow-lg">
       <Title />
@@ -35,6 +45,9 @@ const Header = () => {
           </Link> 
          <Link to="/contact">
            <li className="px-5">Contact</li>
+           </Link>
+           <Link to="/Cart">
+           <li className="px-5">Cart Items:--{cartItems.length}</li>
            </Link>
            <Link to="/Instamart">
            <li className="px-5">Instamart</li>
@@ -51,13 +64,13 @@ const Header = () => {
             <div className="scroll-px-28 my--10">
             {isLoggedin ? (
               <button
-                className="logout-btn bg-slate-500 p-4 rounded-md"
+                className="logout-btn bg-red-900 p-4 rounded-md"
                 onClick={() => setIsLoggedin(false)}
               >
                 Logout
               </button>
             ) : (
-              <button className="login-btn bg-slate-500 p-4 rounded-md" onClick={() => setIsLoggedin(true)}>
+              <button className="login-btn bg-lime-600 p-4 rounded-md" onClick={() => setIsLoggedin(true)}>
                 Login
               </button>
             )}
