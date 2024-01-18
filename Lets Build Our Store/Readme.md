@@ -1,4 +1,3 @@
-# Episode 6 - Explore the World
 
 There are mainly 2 types of architecture.
 
