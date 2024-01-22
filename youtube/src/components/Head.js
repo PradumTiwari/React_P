@@ -12,14 +12,14 @@ const Head = () => {
    dispatch(toggleMenu());
   }
   return (
-    <div className='flex justify-between shadow-lg p-1'>
+    <div className='flex justify-between shadow-lg p-1 h-max'>
       {/*First Section will contain logo */}
       <div className='flex'>
       <img className='h-20 w-16 p-3 cursor-pointer' src={HamBurgur} alt="" onClick={()=>{toogleMenu()}}/>
-      <img src={Youtube_IMG} className='h-20 w-44 ' alt="" />
+      <img src={Youtube_IMG} className='h-[84px] w-44 p-0 ' alt="" />
 
       </div>
-     <div className='flex  p-2'>
+     <div className='flex  '>
       <input type="text " placeholder='Search'  className='py-6 px-6 my-4 border border-gray-400 h-4 w-[400px] rounded-l-full ' />
      <button className='border border-gray-400 p-3  rounded-r-full h-max my-4'>Search</button>
      </div>
