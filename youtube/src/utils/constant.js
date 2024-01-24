@@ -5,3 +5,8 @@ export const Search="https://cdn-icons-png.flaticon.com/512/149/149852.png";
 
 
 export const YouTube_Api="https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=50&regionCode=IN&key="+Google_APIKEY;
+
+export const Youtube_List="https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=50&regionCode=IN&key="+Google_APIKEY;
+
+
+ 

@@ -3,7 +3,7 @@ import ButtonList from './ButtonList'
 import VideoContainer from './VideoContainer';
 const MainContainer = () => {
   return (
-    <div className='w-screen p-2'>
+    <div className='w-screen'>
   <ButtonList/>
   <VideoContainer/>
 
@@ -11,4 +11,4 @@ const MainContainer = () => {
   )
 }
 
-export default MainContainer
+export default MainContainer;
