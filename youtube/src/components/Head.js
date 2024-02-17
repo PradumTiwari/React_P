@@ -1,12 +1,33 @@
-import React from 'react'
-import { HamBurgur } from '../utils/constant';
+import React, { useEffect, useState } from 'react'
+import { HamBurgur, YOUTUBE_SEARCH_API } from '../utils/constant';
 import { Youtube_IMG } from '../utils/constant';
 import { useSelector } from 'react-redux';
 import store from '../utils/store';
 import { toggleMenu } from '../utils/appSlice';
 import { useDispatch } from 'react-redux';
 const Head = () => {
+
+const [searchQuery,setSearchQuery]=useState("");
+const [suggestion,setSuggestion]=useState([]);
+console.log(searchQuery)
  const dispatch = useDispatch();
+
+ useEffect(()=>{
+  
+ const timer=setTimeout(()=>getSearchSuggestion(),200);
+ return()=>{
+  clearTimeout(timer);
+ }
+ },[searchQuery])
+
+ const getSearchSuggestion=async()=>{
+  console.log(searchQuery)
+  const data=await fetch(YOUTUBE_SEARCH_API+searchQuery);
+  const json=await data.json();
+
+ setSuggestion(json[1]);
+ console.log("suggest",suggestion)
+ }
 
   const toogleMenu = () => {
    dispatch(toggleMenu());
@@ -19,11 +40,24 @@ const Head = () => {
       <img src={Youtube_IMG} className='h-[84px] w-44 p-0 ' alt="" />
 
       </div>
+      
      <div className='flex  '>
-      <input type="text " placeholder='Search'  className='py-6 px-6 my-4 border border-gray-400 h-4 w-[400px] rounded-l-full ' />
-     <button className='border border-gray-400 p-3  rounded-r-full h-max my-4'>Search</button>
+     <div>
+      <input
+       type="text " placeholder='Search' 
+        className='py-6 px-6  border border-gray-400 h-6 w-[400px] rounded-l-full ' value={searchQuery} onChange={(e)=>{setSearchQuery(e.target.value)}} />
+     <button className='border border-gray-400 p-3  rounded-r-full h-[51px] my-4'>Search</button>
+     <div className='fixed bg-slate-200  w-[400px] text-lg shadow-lg rounded-lgs cursor'>
+        <ul>
+          {suggestion.map((s)=>(
+                   <li key={s} className=' py-2 shadow-sm hover:bg-gray-300 px-2 text-slate-900'></li>
+          ))}
+          
+        </ul>
+      </div>
      </div>
-
+     </div>
+     
      <div>
         <button className='bg-red-500 text-white p-2 rounded-md'>Sign In</button>
      </div>
