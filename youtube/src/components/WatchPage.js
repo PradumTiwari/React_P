@@ -18,7 +18,7 @@ const WatchPage = () => {
    
     <div>
      <VideoList/>
-     W
+     Watch Page
      
      </div>
   )
