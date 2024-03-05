@@ -1,6 +1,6 @@
 import React from 'react'
 
-const VideoCard = ({video}) => {
+const VideoCard = ({video,ad}) => {
 
     const {id,snippet,statistics}=video;
     const {thumbnails,title,channelTitle}=snippet;
@@ -14,6 +14,15 @@ const VideoCard = ({video}) => {
     {/* <div className='flex'>
     <p>{viewCount}</p>
     <p>{publishedAt}</p> */}
+    {ad&&<p className='text-slate-600 text-xl'>ad</p>}
+    </div>
+  )
+}
+
+export const AdVideoCard=({video})=>{
+  return(
+    <div className='bg-slate-600 rounded-2xl'>
+    <VideoCard video={video} ad={"add"}/>
     </div>
   )
 }
