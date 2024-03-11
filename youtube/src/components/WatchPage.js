@@ -16,9 +16,12 @@ const WatchPage = () => {
    },[])
   return (
    
-    <div>
-     <VideoList/>
-     Watch Page
+    <div className=' flex  '>
+     <div className=''>
+     <iframe className=' p-2  my-12 mx-32  rounded-2xl' 
+     width="1200" height="700" src="https://www.youtube.com/embed/8XN5lUjfYK8?si=Z_-267YxZg8mGAnn" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+     
+     </div>
      
      </div>
   )

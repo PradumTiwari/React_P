@@ -5,15 +5,26 @@ import { useSelector } from 'react-redux';
 import store from '../utils/store';
 import { toggleMenu } from '../utils/appSlice';
 import { useDispatch } from 'react-redux';
+import { cacheResults } from '../utils/searchSlice';
 const Head = () => {
-
 const [searchQuery,setSearchQuery]=useState("");
 const [suggestion,setSuggestion]=useState([]);
+const [showSuggestion,setShowSuggestion]=useState(false);
+
 console.log(searchQuery)
+
+const searchCache=useSelector((store)=>store.search);
  const dispatch = useDispatch();
 
    useEffect(()=>{
-       const timer=setTimeout(()=>getSearchSuggestion(),200);
+       const timer=setTimeout(()=>{
+        if(searchCache[searchQuery]){
+          setSuggestion(searchCache[searchQuery]);
+        }
+        else{
+        getSearchSuggestion();
+      }
+    },200);
        return()=>{
        clearTimeout(timer);
          }
@@ -27,6 +38,11 @@ console.log(searchQuery)
      const json=await data.json();
      setSuggestion(json[1]);
      console.log("suggest",suggestion)
+
+     //update cache
+     dispatch(cacheResults({
+        [searchQuery]:json[1]
+     }));
   }
 
   const toogleMenu = () => {
@@ -45,16 +61,20 @@ console.log(searchQuery)
       <div>
       <input
        type="text " placeholder='Search' 
-        className='py-6 px-6  border border-gray-400 h-6 w-[400px] rounded-l-full ' value={searchQuery} onChange={(e)=>{setSearchQuery(e.target.value)}} />
+        className='py-6 px-6  border border-gray-400 h-6 w-[400px] rounded-l-full ' value={searchQuery} onChange={(e)=>{setSearchQuery(e.target.value)}} onFocus={()=>{setShowSuggestion(true)}} onBlur={()=>{setShowSuggestion(false)}} />
        <button className='border border-gray-400 p-3  rounded-r-full h-[51px] my-4'>Search</button>
-       <div className='fixed bg-slate-200  w-[400px] text-lg shadow-lg rounded-lg cursor'>
+      {showSuggestion&& <div className='fixed bg-slate-200  w-[400px] text-lg shadow-lg rounded-lg cursor'>
         <ul>
+
           {suggestion &&suggestion.map((s)=>(
-                   <li key={s} className=' py-2 shadow-sm hover:bg-gray-300 px-2 text-slate-900'></li>
+                   <li key={s} className=' py-2 shadow-sm hover:bg-gray-300 px-2 text-slate-900'>
+                    {s}
+                    </li>
           ))}
           
         </ul>
       </div>
+}
      </div>
      </div>
      
