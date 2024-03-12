@@ -2,10 +2,12 @@ import React, { useEffect, useState } from 'react'
 import { HamBurgur, YOUTUBE_SEARCH_API } from '../utils/constant';
 import { Youtube_IMG } from '../utils/constant';
 import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 import store from '../utils/store';
 import { toggleMenu } from '../utils/appSlice';
 import { useDispatch } from 'react-redux';
 import { cacheResults } from '../utils/searchSlice';
+import SearchResults from './SearchResults';
 const Head = () => {
 const [searchQuery,setSearchQuery]=useState("");
 const [suggestion,setSuggestion]=useState([]);
@@ -48,12 +50,14 @@ const searchCache=useSelector((store)=>store.search);
   const toogleMenu = () => {
    dispatch(toggleMenu());
   }
+
+ 
   return (
       <div className='flex justify-between shadow-lg p-1 h-max'>
       {/*First Section will contain logo */}
       <div className='flex'>
       <img className='h-20 w-16 p-3 cursor-pointer' src={HamBurgur} alt="" onClick={()=>{toogleMenu()}}/>
-      <img src={Youtube_IMG} className='h-[84px] w-44 p-0 ' alt="" />
+  <img src={Youtube_IMG} className='h-[84px] w-44 p-0 ' alt="" /> 
 
       </div>
       
@@ -67,9 +71,10 @@ const searchCache=useSelector((store)=>store.search);
         <ul>
 
           {suggestion &&suggestion.map((s)=>(
-                   <li key={s} className=' py-2 shadow-sm hover:bg-gray-300 px-2 text-slate-900'>
+                <Link to={"/search"}>   <li key={s} className=' py-2 shadow-sm hover:bg-gray-300 px-2 text-slate-900' onClick={()=>{<SearchResults s={s}/>}}>
                     {s}
                     </li>
+                    </Link>
           ))}
           
         </ul>
