@@ -22,7 +22,7 @@ const VideoContainer = () => {
    }
 
   return  (
-    <div className='flex flex-wrap p-3'>
+    <div className=' w-full flex flex-wrap p-5'>
   {videos[0]&&  <AdVideoCard video={videos[0]}/> }
     {videos.map((video)=>(
      

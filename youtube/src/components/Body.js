@@ -8,7 +8,7 @@ const Body = () => {
 
   const isMenuOpen=useSelector(store=>store.app.isMenuOpen);
   return (
-    <div className='flex '>
+    <div className='flex w-full'>
    {(isMenuOpen)&&<Sidebar/>}
    
     <Outlet/>
