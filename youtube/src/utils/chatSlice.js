@@ -9,7 +9,8 @@ const chatSlice=createSlice({
 
     reducers:{
        addMessage:(state,action)=>{
-        state.item.push(action.payload)
+        state.item.unshift(action.payload)
+        
        }
     }
 })
