@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom';
 
 const Sidebar = () => {
   return (
-    <div className='w-64 p-5 shadow-lg h-screen'>
+    <div className='w-64 h-auto p-5 shadow-lg '>
      <ul className='py-2 my-3'>
-      <li className=' text-xl '> Home</li>
+      <Link to={"/"}>  <li className=' text-xl '> Home</li></Link>
       <li className='text-xl py-2'>Shorts</li>
       <li className='text-xl '>Subscription</li>
      </ul>
