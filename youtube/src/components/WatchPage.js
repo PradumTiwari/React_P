@@ -7,6 +7,7 @@ import VideoList from './VideoList';
 import LiveChat from './LiveChat';
 import CommentsContainer from './CommentsContainer';
 import Description from './Description';
+import UpperLiveChat from './UpperLiveChat';
 const WatchPage = () => {
 
   const [params]=useSearchParams();
@@ -26,7 +27,14 @@ const WatchPage = () => {
      
      <CommentsContainer/>
      </div>
-    <div className='h-full w-[30%]'> <LiveChat  /></div>
+    <div className='h-full w-[30%]'>
+      <div className='p-2'>
+       <UpperLiveChat/>
+      </div>
+      <div className='rounded-xl'>
+      <LiveChat  />
+      </div>
+    </div>
      </div>
   )
 }
